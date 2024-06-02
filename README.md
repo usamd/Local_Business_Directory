@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/usamd/Local_Business_Directory/assets/146975240/cde8f6d6-5089-47c6-8dec-84c9b828868c" width="400" alt="Laravel Logo"></p>
+<p align="center"><img src="https://github.com/usamd/Local_Business_Directory/assets/146975240/51dc2810-12d9-4a7b-b865-2109307bf18c" width="400" alt="Laravel Logo"></p>
 
 ## Project - BIZNEST
 
