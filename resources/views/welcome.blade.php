@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>BizNest</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -27,15 +27,89 @@
 
 
             body {
-            background: black;
-            color: white;
+                background: #141927;
+                color: white;
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
             }
 
-            .card-img-left {
-                width: 100%;
+            .container {
+                display: flex;
+                align-items: center;
+                position: relative;
+                max-width: 1200px; /* Added max-width */
+                width: 100%; /* Added width */
+                margin: 0 auto; /* Centering the container */
+            }
+
+            .left-column {
+                flex: 1;
+                padding: 20px;
+                margin-right: 20px;
+            }
+
+            .right-column {
+                flex: 1; /* Changed to 1 */
+                padding: 20px;
+            }
+
+            .logo {
+                display: block;
+
+            }
+
+            .business-info {
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-align: center;
+                font-size: 20px;
+            }
+
+            .partnership {
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-align: center;
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+
+            .vertical-line {
+                width: 2px;
+                background-color: green;
+                height: 100% !important;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: calc(50% - 1px); /* Changed to 50% */
+                margin-left: -1px; /* Added to adjust position */
+            }
+
+            .partnership-desc {
+                margin-bottom: 20px;
+                text-align: center;
+                margin-top: 20px;
+
+            }
+
+            .card {
+                background-color: #272d3f;
+                border-radius: 15px;
+                padding: 30px; /* Increased padding */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+                width: 100%; /* Added width */
                 height: 100%;
-                background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
-                background-size: cover;
+            }
+
+            .card-title {
+                color: green;
+                font-weight: lighter;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
             }
 
             .btn-custom {
@@ -45,41 +119,63 @@
                 color: white !important;
                 background-color: green;
                 border: none;
+                border-radius: 25px;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                display: block;
+                transition: background-color 0.3s ease;
             }
 
-            .card-body {
-                background-color: #1a1a1a; /* Slightly darker shade of black */
+            .btn-custom:hover {
+                background-color: darkgreen;
             }
 
-            .card-title {
-                color: green;
+            git config --global user.email "ashikaushalya06@gmail.com"
+
+            @media screen and (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .vertical-line {
+                    display: none;
+                }
+
+                .left-column, .right-column {
+                    width: 100%;
+
+                }
             }
-        </style>
-    </head>
+    </style>
+</head>
     <body class="antialiased">
         <div class="container">
-            <div class="row min-vh-100 align-items-center">
-                <div class="col-md-4 d-none d-md-block">
-                    <div class="card-img-left"></div>
+            <div class="left-column">
+                <img src="/images/logo.png" alt="Logo" class="logo">
+                <div class="business-info">Local Business Directory</div>
+                <div class="partnership">Partnership for business growth</div>
+                <div class="partnership-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </div>
-                <div class="col-md-8">
-                    <div class="card border-0 shadow rounded-3 overflow-hidden">
-                        <div class="card-body p-4 p-sm-5">
-                            <h5 class="card-title text-center mb-5 fw-light fs-5">{{ __('Welcome') }}</h5>
-                            <div class="d-grid mb-2">
-                                @auth
-                                    <a href="{{ url('/home') }}" class="btn btn-custom btn-lg fw-bold text-uppercase">{{ __('Home') }}</a>
-                                @else
-                                    <a href="{{ route('login') }}" class="btn btn-custom btn-lg fw-bold text-uppercase">{{ __('Log in') }}</a>
-                                @endauth
-                            </div>
-                            @if (Route::has('register'))
-                                <div class="d-grid">
-                                    <a href="{{ route('register') }}" class="btn btn-custom btn-lg fw-bold text-uppercase">{{ __('Register') }}</a>
-                                </div>
-                            @endif
-                        </div>
+            </div>
+            <div class="vertical-line"></div>
+            <div class="right-column ">
+                <div class="card">
+                    <h5 class="card-title text-center mb-4">{{ __('Welcome Back Exclusive Partner') }}</h5>
+                    <div class="d-grid mb-2 button-container">
+                        @auth
+                            <a href="{{ url('/home') }}" class="btn btn-custom btn-lg fw-bold text-uppercase">{{ __('Home') }}</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-custom btn-lg fw-bold text-uppercase">{{ __('Log in') }}</a>
+                        @endauth
                     </div>
+                    @if (Route::has('register'))
+                        <div class="d-grid">
+                            <a href="{{ route('register') }}" class="btn btn-custom btn-lg fw-bold text-uppercase">{{ __('Register') }}</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
