@@ -131,8 +131,6 @@
                 background-color: darkgreen;
             }
 
-            git config --global user.email "ashikaushalya06@gmail.com"
-
             @media screen and (max-width: 768px) {
                 .container {
                     flex-direction: column;
