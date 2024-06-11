@@ -7,7 +7,7 @@
 	background-color: rgb(21 32 43);
 	background-position: center;
 	background-size: cover;
-	height: 4000px;
+	height: 4500px;
 }
 .navbar{
 	width: 1452px;
@@ -355,3 +355,45 @@ ul li p{
 	width: 12px;
 	background-color: white;
 }
+.detail{
+	width: 1300px;
+	float: left;
+	height: 80px;
+	font-size: 14px;
+	font-family: system-ui;
+	color: #fff;
+	margin-top: 50px;
+	margin-left: 80px;
+}
+.detail h4{
+	font-size: 18px;
+	color: #00b132;
+}
+.detail h6{
+	font-size: 14px;
+	color: #fff;
+	font-style: italic;
+}
+.detail ul{
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.detail ul li{
+	list-style: none;
+	margin: 30px;
+	margin-top: 32px;
+	font-size: 12px;
+}
+.adve{
+	float: left;
+	font-size: 14px;
+	font-family: system-ui;
+	color: #fff;
+	margin-top: 500px;
+	margin-left: 10px;
+}
+.adve h6{
+	font-size: 14px;
+	color: #fff;
