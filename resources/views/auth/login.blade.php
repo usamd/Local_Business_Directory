@@ -1,9 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.guestapp')
 
 @section('content')
 <style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
     body {
-        background: black;
+        background: linear-gradient(135deg, #15202B 10%, #09a509 100%);
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        width:100%;
+        height:100%;
     }
 
     .background-image-container {
@@ -24,9 +35,8 @@
 
     .text-white {
         color: white;
-
-
     }
+
     .font-size-lg {
         font-size: 1.25rem; /* Adjust the font size as needed */
     }
@@ -37,52 +47,60 @@
 
     .card-img-left {
         width: 45%; /* Maintain the width of the div */
-        /* Link to your background image using in the property below! */
+        /* Link to your background image using the property below! */
         background: scroll center url('/images/logo.png');
         background-size: contain; /* Make the background image fit within the container without being cropped */
         background-repeat: no-repeat; /* Prevent the background image from repeating */
     }
-
-
 
     .btn-login {
         font-size: 0.9rem;
         letter-spacing: 0.05rem;
         padding: 0.75rem 1rem;
         color: white !important;
-        background-color: green;
+        background-color: #015701;
+    }
+    .btn-login:hover {
+        background-color: #15202B;
+        color: white !important;
     }
 
     .btn-google, .btn-facebook, .btn-github {
         color: white !important;
-        background-color: green;
+        background-color: rgb(0, 0, 0);
         display: inline-block;
         width: auto;
         padding: 0.5rem 1rem;
         margin-right: 0.5rem;
     }
+    .btn-link{
+        color:white;
+    }
+    .btn-link:hover{
+        color:white;
+    }
 
-    .card-body {
-        background-color: #141927; /* Slightly darker shade #1a1a1a; of black */
-        /* Ensures the text is readable */
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .card-title {
-        color: green;
+        color: rgb(241, 241, 241);
     }
     .text-green {
-        color: green;
+        color: rgb(255, 255, 255);
     }
     .custom-form-input {
         width: 60%; /* Adjust the width as needed */
         margin: 0 auto; /* Center the form inputs horizontally */
     }
-
-    /*.custom-form-label {
-        font-size: smaller;
-    }*/
-
 </style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-10 col-xl-9 mx-auto">
@@ -120,13 +138,13 @@
                         </div>
 
                         <div class="d-grid mb-3 custom-form-input">
-                            <button type="submit" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill">
+                            <button type="submit" class="btn btn-lg btn-login fw-bold text-uppercase rounded-pill">
                                 {{ __('Sign In') }}
                             </button>
                         </div>
 
                         @if (Route::has('password.request'))
-                            <a class="d-block text-center mt-2 small" href="{{ route('password.request') }}">
+                            <a class="btn btn-link d-block text-center mt-2 small" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
@@ -144,7 +162,7 @@
                                 <i class="fab fa-github"></i>
                             </button>
                         </div>
-                        <a class="d-block text-center mt-2 small" href="{{ route('register') }}">{{ __('Do not have an account yet? Register for free') }}</a>
+                        <a class="btn btn-link d-block text-center mt-2 small" href="{{ route('register') }}">{{ __('Do not have an account yet? Register for free') }}</a>
                     </form>
                 </div>
             </div>
