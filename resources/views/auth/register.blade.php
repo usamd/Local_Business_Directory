@@ -1,9 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.guestapp')
 
 @section('content')
 <style>
     body {
-        background: black;
+        background: linear-gradient(135deg, #15202B 10%, #09a509 100%);
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        width:100%;
+        height:100%;
     }
 
     .background-image-container {
@@ -40,7 +45,7 @@
         letter-spacing: 0.05rem;
         padding: 0.75rem 1rem;
         color: white !important;
-        background-color: green;
+        background-color: #015701;
 
     }
     .btn-login:hover{
@@ -57,9 +62,13 @@
         margin-right: 0.5rem;
     }
 
-    .card-body {
-        background-color:#141927;/* Slightly darker shade of black */
-        /* Ensures the text is readable 131722 */
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .card-title {
@@ -208,7 +217,7 @@
                     <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-user-text" style="display: none;">{{ __('Signup as a User') }}</h5>
                     <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-owner-text" style="display: none;">{{ __('Details of Owner') }}</h5>
 
-                //Buttons for customizing the users who are going to register
+
                 <div class="d-grid gap-3 mb-2 button-container text-center" id="main-button-container" style="display:none;">
                     <button id="signup-user-btn" class="btn btn-login fw-bold rounded-pill px-3" style="width: 300px; margin: 0 auto;">Signup as a user</button>
                     <button id="signup-employee-btn" class="btn btn-login fw-bold rounded-pill px-3" style="width: 300px; margin: 0 auto;">Signup as an employee</button>
@@ -217,7 +226,6 @@
 
 
 
-                //User Signup Page starts here
                 <div class="container1">
                     <form method="POST" action="{{ route('register') }}" class="mb-4" id="user-registration-form" style="display: none;">
                         @csrf
@@ -320,7 +328,7 @@
 
 
 
-                    //Employee signup form starts here
+
                     <div class="container2">
                         <form method="POST" action="{{ route('register') }}" class="mb-4" id="employee-registration-form" style="display: none;">
                             @csrf

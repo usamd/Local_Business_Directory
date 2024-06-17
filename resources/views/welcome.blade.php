@@ -27,7 +27,7 @@
 
 
             body {
-                background: #141927;
+                background: linear-gradient(135deg, #15202B 0%, #09a509 100%);
                 color: white;
                 font-family: Arial, sans-serif;
                 display: flex;
@@ -35,6 +35,9 @@
                 align-items: center;
                 height: 100vh;
                 margin: 0;
+
+
+
             }
 
             .container {
@@ -97,12 +100,18 @@
             }
 
             .card {
-                background-color: #272d3f;
-                border-radius: 15px;
                 padding: 30px; /* Increased padding */
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
                 width: 100%; /* Added width */
                 height: 100%;
+                background: rgba(20, 25, 39, 0.95);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-radius: 2px;
+                border: 1px solid rgba(255, 255, 255, .25);
+                box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(25px); /* Adjust the shadow as needed */
             }
 
             .card-title {
@@ -110,6 +119,7 @@
                 font-weight: lighter;
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
+
             }
 
             .btn-custom {
