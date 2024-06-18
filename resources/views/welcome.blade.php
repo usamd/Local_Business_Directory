@@ -27,7 +27,7 @@
 
 
             body {
-                background: linear-gradient(135deg, #15202B 0%, #09a509 100%);
+                background: linear-gradient(135deg, #15202B 40%, #09a509 100%);
                 color: white;
                 font-family: Arial, sans-serif;
                 display: flex;
@@ -35,8 +35,6 @@
                 align-items: center;
                 height: 100vh;
                 margin: 0;
-
-
 
             }
 
@@ -104,18 +102,20 @@
 
                 width: 100%; /* Added width */
                 height: 100%;
-                background: rgba(20, 25, 39, 0.95);
+                background: rgba(255, 255, 255, 0.2);
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                border-radius: 2px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.3);
                 border: 1px solid rgba(255, 255, 255, .25);
-                box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.25);
-                backdrop-filter: blur(25px); /* Adjust the shadow as needed */
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
             }
 
             .card-title {
-                color: green;
+                color: white;
                 font-weight: lighter;
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
@@ -127,7 +127,7 @@
                 letter-spacing: 0.05rem;
                 padding: 0.75rem 1rem;
                 color: white !important;
-                background-color: green;
+                background-color:rgb(1, 73, 1);
                 border: none;
                 border-radius: 25px;
                 width: 100%;
