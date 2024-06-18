@@ -3,13 +3,14 @@
 @section('content')
 <style>
     body {
-        background: linear-gradient(135deg, #15202B 10%, #09a509 100%);
+        background: linear-gradient(135deg, #15202B 40%, #09a509 100%);
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: auto !important;
     }
+
 
     .background-image-container {
         position: relative;
@@ -47,15 +48,17 @@
         color: white !important;
         background-color: #015701;
 
+
     }
     .btn-login:hover{
-        background-color:white ;
-        color: green !important;
+
+        color: rgb(255, 255, 255) !important;
+        background-color:rgb(0, 0, 0) ;
     }
 
     .btn-google, .btn-facebook, .btn-github {
         color: white !important;
-        background-color: green;
+        background-color: rgb(0, 0, 0);
         display: inline-block;
         width: auto;
         padding: 0.5rem 1rem;
@@ -69,6 +72,7 @@
         -webkit-backdrop-filter: blur(5px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.3);
+        height: 90vh;
     }
 
     .card-title {
@@ -79,7 +83,7 @@
         color: white;
     }
     .text-green {
-        color: green;
+        color: rgb(13, 167, 13);
     }
     .custom-form-input {
         width: 100%; /* Adjust the width as needed */
@@ -88,6 +92,14 @@
     }
     .custom-button-container{
         margin-top:40px;
+    }
+
+    .btn-link{
+        color:white;
+    }
+
+    .btn-link:hover{
+        color:white;
     }
 
 
@@ -296,21 +308,16 @@
                         </div>
 
                         <!-- Link for signing in, HR, and social media buttons -->
-                        <div class="text-center mb-3 custom-button-container">
-                            <!-- Buttons -->
-                            <div class="d-grid mb-3 gap-2 custom-form-input">
-                                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill" type="submit" style="width: 400px; margin: 0 auto;">
+                        <div class="d-flex justify-content-between align-items-center mb-3 gap-2 custom-form-input">
+                            <div>
+                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="submit" style="width: 200px;">
                                     {{ __('Register') }}
                                 </button>
-                                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill" type="button" id="emp-signup-shift-btn" style="width: 400px; margin: 0 auto;">
+                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="emp-signup-shift-btn" style="width: 400px;">
                                     {{ __('Signup as an Employee') }}
                                 </button>
                             </div>
-                            <a class="d-block text-center mt-2 small" href="{{ route('login') }}">{{ __('Have an account? Sign In') }}</a>
-
-                            <hr class="my-4">
-
-                            <div class="d-flex justify-content-center">
+                            <div>
                                 <button class="btn btn-lg btn-google btn-login fw-bold" type="button">
                                     <i class="fab fa-google"></i>
                                 </button>
@@ -322,6 +329,10 @@
                                 </button>
                             </div>
                         </div>
+                        <hr class="my-4">
+                        <a class="d-block text-center btn-link mt-2 small" href="{{ route('login') }}">{{ __('Have an account? Sign In') }}</a>
+
+
                     </form>
                 </div>
 
@@ -397,10 +408,10 @@
                                     </div>
                                 </div>
                                 <div class="d-grid mb-3 gap-2 custom-form-input text-center">
-                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill" type="button" id="next-button"style="width: 400px; margin: 0 auto;">
+                                    <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="next-button"style="width: 400px; margin: 0 auto;">
                                         Next
                                     </button>
-                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill" type="button" id="first-back-button"style="width: 400px; margin: 0 auto;">
+                                    <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="first-back-button"style="width: 400px; margin: 0 auto;">
                                         Back
                                     </button>
                                 </div>
@@ -475,23 +486,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-grid mb-3 gap-2 custom-form-input text-center">
-                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill" type="submit"style="width: 400px; margin: 0 auto;">
-                                        {{ __('Register') }}
-                                    </button>
-                                    <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase rounded-pill" type="button" id="second-back-button"style="width: 400px; margin: 0 auto;">
-                                        Back
-                                    </button>
-                                </div>
-                            </div>
-
-
-                                <div id="footer-signup-items"style="display: none;">
-                                    <a class="d-block text-center mt-2 small" href="{{ route('login') }}">{{ __('Have an account? Sign In') }}</a>
-
-                                    <hr class="my-4">
-
-                                    <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-between align-items-center mb-3 gap-2 custom-form-input">
+                                    <div>
+                                        <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="submit" style="width: 200px;">
+                                            {{ __('Register') }}
+                                        </button>
+                                        <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="second-back-button" style="width: 200px;">
+                                            Back
+                                        </button>
+                                    </div>
+                                    <div>
                                         <button class="btn btn-lg btn-google btn-login fw-bold" type="button">
                                             <i class="fab fa-google"></i>
                                         </button>
@@ -502,6 +506,13 @@
                                             <i class="fab fa-github"></i>
                                         </button>
                                     </div>
+                                </div>
+
+                            </div>
+                            <hr class="my-4">
+
+                                <div id="footer-signup-items"style="display: none;">
+                                    <a class="d-block text-center btn-link mt-2 small" href="{{ route('login') }}">{{ __('Have an account? Sign In') }}</a>
                                 </div>
                         </form>
                     </div>

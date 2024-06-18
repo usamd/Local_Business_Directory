@@ -9,13 +9,14 @@
     }
 
     body {
-        background: linear-gradient(135deg, #15202B 10%, #09a509 100%);
+        background: linear-gradient(135deg, #15202B 40%, #09a509 100%);
         margin: 0;
         padding: 0;
         font-family: sans-serif;
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
     }
+
 
     .background-image-container {
         position: relative;
