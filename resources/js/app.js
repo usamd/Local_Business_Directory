@@ -34,3 +34,11 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+require('./bootstrap');
+
+import { createApp } from 'vue';
+import ChatComponent from './components/ChatComponent.vue';
+
+const app = createApp({});
+app.component('chat-component', ChatComponent);
+app.mount('#app');
