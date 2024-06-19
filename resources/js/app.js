@@ -1,44 +1,12 @@
-// app.js
+import './bootstrap';
 
-// Import necessary modules
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
+import Alpine from 'alpinejs'
 
-// Initialize express app
-const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+window.Alpine = Alpine;
 
-// Serve static files
-app.use(express.static('public'));
+Alpine.start();
 
-// Socket.IO connection event
-io.on('connection', (socket) => {
-    console.log('A user connected');
+import {createApp} from 'vue';
+import App from './App.vue';
 
-    // Listen for messages from the client
-    socket.on('chat message', (msg) => {
-        // Broadcast the message to all connected clients
-        io.emit('chat message', msg);
-    });
-
-    // Listen for disconnection
-    socket.on('disconnect', () => {
-        console.log('User disconnected');
-    });
-});
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
-require('./bootstrap');
-
-import { createApp } from 'vue';
-import ChatComponent from './components/ChatComponent.vue';
-
-const app = createApp({});
-app.component('chat-component', ChatComponent);
-app.mount('#app');
+createApp(App).mount('#chatApp');
