@@ -16,7 +16,7 @@
       <img src="" alt="Avatar men"> 
       <h2>Jane Flex</h2>
       <p>Some text.</p>
-      <a href=""><button>Setting</button></a><br> <!-- Link to message page -->
+      <a href=""><button>Setting</button></a><br> 
 
     </div>
   </div>
