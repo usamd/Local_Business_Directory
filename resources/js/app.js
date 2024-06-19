@@ -1,4 +1,5 @@
 import './bootstrap';
+<<<<<<< HEAD
 
 import Alpine from 'alpinejs'
 
@@ -10,3 +11,7 @@ import {createApp} from 'vue';
 import App from './App.vue';
 
 createApp(App).mount('#chatApp');
+=======
+import '@fortawesome/fontawesome-free/js/all.js';
+
+>>>>>>> main
