@@ -27,7 +27,7 @@
 
   <div class="right">
     <div class="header">
-      <h2>Christoper nolan</h2>
+      <h2>user Name</h2>
     </div>
     <div class="message-history">
       
