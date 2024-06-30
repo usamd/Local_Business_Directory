@@ -1,15 +1,11 @@
 <?php
 
-<<<<<<< HEAD
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChatController;
-=======
-use Illuminate\Support\Facades\Route;
->>>>>>> main
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
 
 Route::middleware('auth')->group(function () {
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
@@ -49,8 +44,3 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/messageDashboard', function () {
     return view('messageDashboard');
 })->name('messageDashboard');
-=======
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> main
