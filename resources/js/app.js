@@ -9,6 +9,6 @@ Alpine.start();
 import {createApp} from 'vue';
 import App from './App.vue';
 
-createApp(App).mount('#chatApp');
+createApp(App).mount('#chatapp');
 
 
