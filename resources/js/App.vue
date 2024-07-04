@@ -1,10 +1,14 @@
 <template>
-   <h1>ChatAPP</h1>
-   <h1>hello</h1>
+  console.log('App.vue mounted!');
 </template>
 
 <script>
-
+export default {
+  name: 'App',
+  mounted() {
+    console.log('App.vue mounted!');
+  },
+};
 </script>
 
 <style scoped>
