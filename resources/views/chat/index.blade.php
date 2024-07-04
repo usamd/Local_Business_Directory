@@ -11,7 +11,7 @@
     </head>
 
 
-    <body class="font-sans bg-[#15202B]">
+    <body class="font-sans bg-white">
 
 
     <div id ='chatapp'></div>
