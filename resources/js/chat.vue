@@ -1,12 +1,16 @@
 <template>
-  console.log('App.vue mounted!');
+  <div>
+    <h1>ChatAPP</h1>
+    <h1>Hello</h1>
+    <h2>This is vue.js </h2>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'Chat',
   mounted() {
-    console.log('App.vue mounted!');
+    console.log('chat.vue mounted!');
   },
 };
 </script>
