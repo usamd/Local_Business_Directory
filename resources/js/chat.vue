@@ -31,7 +31,7 @@
 
 <div class="lg:container mx-auto mt-[90px] px-4 mb-4">
   <div class ="grid grid-cols-3 gap-4">
-    <div class="col-span-1 min-w-[200px] bg-[#15202B] p-4 shadow-md rounded-md">
+    <div class="col-span-1 min-w-[300px] bg-[#15202B] p-4 shadow-md rounded-md">
         <!-- chat Search -->
          <input type ="text" placeholder="search" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500 mb-4" >
         <!-- chat list -->
@@ -88,14 +88,37 @@
 
 
         <!-- chat body -->
-        <div class="">2</div>
+        <div class="overflow-y-auto h-64 min-h[19rem] px-4">
+          <div class="flex items-center mb-4">
+            <img :src="fileLink('c7.jpg')" class="w-6 h-6 rounded-full border-2 border-white mr-1" alt="user">
+            <div class="relative group text-sm py-2 px-auto px-max-7 p-2 shadow bg-gray-400 rounded-md max-w-xs">
+              Lorem ipsum dolor sit amet, consectetur 
+            <div class="absolute top-1/2 -translate-y-1/2 bg-gray-600 py-1 px-1.5 rounded z-50 text-white left-full ml-1 hidden group-hover:block w-max">12.00</div>
+            
+            </div>
+            <three-dots-icon class="w-4 h-4" cursor-pointer></three-dots-icon>
+          </div>
+        
+          <div class="flex items-center justify-end mb-4">
+            <three-dots-icon class="w-8 h-4" cursor-pointer></three-dots-icon>
+            <div class="relative group text-sm text-white py-2 px-auto p-2 px-max-7 shadow bg-green-900 rounded-md max-w-xs mr-1 ml-1">
+              Lorem ipsum dolor sit amet, consectetur a
+              <div class="absolute top-1/2 -translate-y-1/2 bg-gray-600 py-1 px-1.5 rounded z-50 text-white right-full mr-1 hidden group-hover:block w-max">12.00</div>
+            </div>   
+            <img :src="fileLink('c1.jpg')" class="w-6 h-6 rounded-full border-2 border-white mr-1" alt="user">
+
+                  
+          </div>
+        
+        
+        </div>
+        
         
 
-
         <!-- sending messages -->
-        <div class="flex items-center bg-white p-4 rounded-bl-md rounded-br-md">3
-          <input type ="text" placeholder="Type your message" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500 mb-4" >
-          <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Send</button>
+        <div class="flex items-center bg-white p-4 rounded-bl-md rounded-br-md">
+          <input type ="text" placeholder="Type your message" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500" >
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-md disabled:bg-gray-400 ml-2" disabled>Send</button>
 
         </div>
       </div>

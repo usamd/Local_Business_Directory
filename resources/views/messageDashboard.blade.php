@@ -31,8 +31,8 @@
       <h2>user Name</h2>
     </div>
     <div class="message-history">
-      
     </div>
+
     <div class="message-input">
       <input type="text" id="message-text" placeholder="Type your message">
       <button id="send-button">Send</button>
