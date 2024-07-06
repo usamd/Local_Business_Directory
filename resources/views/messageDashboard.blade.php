@@ -23,6 +23,7 @@
   
   <div class="middle">
     <h2>Messages</h2>
+    
   </div>
 
   <div class="right">
