@@ -165,11 +165,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-<<<<<<< HEAD
-        App\Providers\BroadcastServiceProvider::class,
-=======
         // App\Providers\BroadcastServiceProvider::class,
->>>>>>> main
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])->toArray(),
