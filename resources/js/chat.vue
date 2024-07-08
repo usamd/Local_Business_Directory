@@ -6,23 +6,25 @@
         <div class="col-span-1 min-w-[250px]">
           <div class="flex item-center justify-between">
             <div class="flex item-center">
+             
               <img :src="fileLink('c7.jpg')" class="w-12 h-12 rounded-full border-2 border-green-400" alt="prof_image">
               <span class ="font-semibold text-white pl-5 pt-2">Sameera Dilshan</span>
             </div>
             <!-- three dots and dot_popup menu -->
-            <div class="relative inline-block text-left group">
+            <!-- <div class="relative inline-block text-left group">
               <three-dots-icon class="w-5 h-12" ></three-dots-icon>
               <div class="origin-top-right absolute left-150 w-500 rounded-md shadow-ld bg-green-500 ring-1 ring-black ring-opacity-5 z-5 hidden group-hover:block">
                 <div class="py-3">
-                  <a href="#" class="block py-1 px-5 hover:bg-blue-700 text-black font-bold hover:text-gray-900" cursor-pointer >Profile</a>
+                  <a href="/profile" class="block py-1 px-5 hover:bg-blue-700 text-black font-bold hover:text-gray-900" cursor-pointer >Profile</a>
                   <a href="#" class="block py-1 px-5 hover:bg-blue-700 text-black font-bold hover:text-gray-900" cursor-pointer >Settings</a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- logout button -->
         <div class="col-span-2 text-right">
+          <a href="user/dashboard" class="p-2 pl-0 mr-1 pr-1"><button class="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Back</button></a>
           <button class="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded" @click="logout">Logout</button>
         </div>
     </div>
@@ -96,11 +98,11 @@
             <div class="absolute top-1/2 -translate-y-1/2 bg-gray-600 py-1 px-1.5 rounded z-50 text-white left-full ml-1 hidden group-hover:block w-max">12.00</div>
             
             </div>
-            <three-dots-icon class="w-4 h-4" cursor-pointer></three-dots-icon>
+            <!-- <three-dots-icon class="w-4 h-4" cursor-pointer></three-dots-icon> -->
           </div>
         
           <div class="flex items-center justify-end mb-4">
-            <three-dots-icon class="w-8 h-4" cursor-pointer></three-dots-icon>
+            <!-- <three-dots-icon class="w-8 h-4" cursor-pointer></three-dots-icon> -->
             <div class="relative group text-sm text-white py-2 px-auto p-2 px-max-7 shadow bg-green-900 rounded-md max-w-xs mr-1 ml-1">
               Lorem ipsum dolor sit amet, consectetur a
               <div class="absolute top-1/2 -translate-y-1/2 bg-gray-600 py-1 px-1.5 rounded z-50 text-white right-full mr-1 hidden group-hover:block w-max">12.00</div>
@@ -118,7 +120,7 @@
         <!-- sending messages -->
         <div class="flex items-center bg-white p-4 rounded-bl-md rounded-br-md">
           <input type ="text" placeholder="Type your message" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500" >
-          <button class="bg-blue-600 text-white px-4 py-2 rounded-md disabled:bg-gray-400 ml-2" disabled>Send</button>
+          <button class="bg-blue-600 text-white px-4 py-2 rounded-md disabled:bg-gray-400 ml-2" @click="send">Send</button>
 
         </div>
       </div>
@@ -140,26 +142,61 @@
 </template>
 
 <script>
+import axios from 'axios';
 import ThreeDotsIcon from "@/component/ThreeDotsIcon.vue";
 
-export default{
+export default {
   name: 'chatapp',
-  components:{ ThreeDotsIcon },
+  components: { ThreeDotsIcon },
   data() {
-    return{
+    return {
+      message: '',
       isChatOpen: true,
+      allMessages: [],
+    };
+  },
+  methods: {
+    logout() {
+      axios.post('/logout')
+        .then(response => {
+          console.log('Logged out successfully');
+          window.location.href = '/login';
+        })
+        .catch(error => {
+          console.error('Logout failed', error);
+        });
+    },
+    send() {
+      if (!this.message) {
+        return alert('Please enter a message.');
+      }
+
+      axios.post('/messages', { message: this.message })
+        .then(response => {
+          this.allMessages.push(response.data.message);
+          this.message = '';
+        })
+        .catch(error => {
+          console.error('Failed to send message', error);
+        });
+    },
+    fetchMessages() {
+      axios.get('/messages')
+        .then(response => {
+          this.allMessages = response.data;
+        })
+        .catch(error => {
+          console.error('Failed to fetch messages', error);
+        });
+    },
+    fileLink(file) {
+      return 'http://127.0.0.1:8000/assest/' + file;
     }
   },
-  methods:{
-    logout() {
-      console.log('logout');
-    },
-    fileLink(file){
-      return 'http://127.0.0.1:8000/assest/' + file; //or we can put '/assest/'+file
-    }
-
+  mounted() {
+    this.fetchMessages();
   }
-}
+};
 </script>
 
 <style scoped>
