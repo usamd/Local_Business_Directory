@@ -4,22 +4,20 @@ import forms from '@tailwindcss/forms';
 // tailwind.config.js
 module.exports = {
     content: [
-      './resources/chat/index.blade.php',
-      './resources/js/app.js',
-      './resources/js/app.vue',
+      './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+      './storage/framework/views/*.php',
+      './resources/views/**/*.blade.php',
+      './resources/js/**/*.vue',
     ],
+
+
     theme: {
       extend: {
-        colors: {
-          'bg-primary': '#15202B',
-          'bg-secondary': '#113D2C',
-          'text-primary': '#00FF00',
-        },
         fontFamily: {
           poppins: ['Poppins', 'sans-serif'],
         },
       },
     },
-    plugins: [],
+    plugins: [forms],
   };
   

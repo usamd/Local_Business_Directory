@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <p>You're In</p></br>
-                    <a href="{{ route('messageDashboard') }}" class="text-darkgreen-500 hover:text-blue-700"><button class="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Messages</button></a>
+                    <a href="{{ route('/chat') }}" class="text-darkgreen-500 hover:text-blue-700"><button class="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">Messages</button></a>
                 </div>
                 
 

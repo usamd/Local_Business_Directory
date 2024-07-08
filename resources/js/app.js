@@ -1,14 +1,11 @@
 import './bootstrap';
+import { createApp } from 'vue';
+import Chat from './chat.vue';
+// import Alpine from 'alpinejs'; // Uncomment if you are using Alpine.js
 
-import Alpine from 'alpinejs'
+const app = createApp(Chat);
+app.mount('#chatapp');
 
-window.Alpine = Alpine;
-
-Alpine.start();
-
-import {createApp} from 'vue';
-import App from './App.vue';
-
-createApp(App).mount('#chatApp');
-
-
+// Uncomment if you are using Alpine.js
+// window.Alpine = Alpine;
+// Alpine.start();
