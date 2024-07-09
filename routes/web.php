@@ -23,3 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('register_employee', [RegisterController::class, 'businessRegisterIndex'])->name('register_employee');
+Route::post('register-business', [RegisterController::class, 'registerBusiness'])->name('register.business');
