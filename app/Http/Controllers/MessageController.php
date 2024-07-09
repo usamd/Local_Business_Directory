@@ -25,14 +25,13 @@ class MessageController extends Controller
         // Broadcast the event
         broadcast(new MessageSent($message))->toOthers();
 
-        return response()->json(['status' => 'Message Sent!']);
+        return response()->json(['status' => 'Message Sent!', 'message' => $message]);
     }
 
-    // Method to get all messages (optional)
+    // Method to get all messages
     public function getMessages()
     {
         $messages = Message::with('user')->get();
+        return response()->json($messages);
     }
 }
-
-?>

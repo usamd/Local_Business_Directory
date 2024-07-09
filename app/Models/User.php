@@ -1,20 +1,14 @@
 <?php
 
 namespace App\Models;
-<<<<<<< HEAD
 use Database\Seeders;
-=======
->>>>>>> main
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Relations\HasMany;
-=======
->>>>>>> main
 
 class User extends Authenticatable
 {
@@ -29,10 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-<<<<<<< HEAD
-        'avatar',	
-=======
->>>>>>> main
+        'avatar',
     ];
 
     /**
@@ -54,7 +45,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-<<<<<<< HEAD
 
     public function role()
     {
@@ -66,6 +56,4 @@ class User extends Authenticatable
         return $this->HasMany(Message::class);
     }
 
-=======
->>>>>>> main
 }

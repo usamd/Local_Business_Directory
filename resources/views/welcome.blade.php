@@ -15,7 +15,7 @@
 			<div class="icon">
 				<img class="logo" src="assest/Biznest 1.png" alt="logo">
 			</div>
-		
+
 			<div class="menu">
 				<ul>
 					<li><a href="">Categories</a></li>
@@ -215,7 +215,7 @@
 	<h4>BIZNET: More Than Just a Directory</h4>
 	<h5>Think of BIZNEST as your launchpad for business growth. We provide the connections and information you need to:</h5>
 
-	<ul>	
+	<ul>
 		<li>Source Materials: Locate the best places to acquire essential supplies and equipment for your business.</li>
 		<li> Make Informe Decisions: Gain valuable insights and connect with industry experts to make strategic choices for your business.¯</li>
 		<li>Streamline Operations: Discover tools and services that can optimize your workflow and save you valuable time and resources.</li>

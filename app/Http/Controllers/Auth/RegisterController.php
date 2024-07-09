@@ -52,6 +52,10 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required', 'string', 'max:255'],
+            'nearest_city' => ['required', 'string', 'max:255'],
+            'mobile_number' => ['required', 'string', 'max:20'],
+            'id_number' => ['required', 'string', 'max:20'],
         ]);
     }
 
@@ -67,6 +71,17 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'nearest_city' => $data['nearest_city'],
+            'mobile_number' => $data['mobile_number'],
+            'id_number' => $data['id_number'],
+            'role_id' => 2, // Assuming role_id 2 corresponds to a specific role in your roles table
         ]);
+    }
+
+
+    protected function businessRegisterIndex()
+    {
+        return view('auth.register_business');
     }
 }
