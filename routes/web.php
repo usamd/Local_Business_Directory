@@ -1,13 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ChatController;
-use App\Http\Controllers\Auth\LoginController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -24,31 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 
-Route::middleware('auth')->group(function () {
-    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-//logout route for the chat.vue
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-
-require __DIR__.'/auth.php';
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-});
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
-    
-});
-
-Route::post('/messages', [MessageController::class, 'sendMessage'])->middleware('auth');
-Route::get('/messages', [MessageController::class, 'getMessages'])->middleware('auth');
-
-Route::get('/messageDashboard', function () {
-    return view('messageDashboard');
-})->name('messageDashboard');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('register_employee', [RegisterController::class, 'businessRegisterIndex'])->name('register_employee');

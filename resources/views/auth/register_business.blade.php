@@ -186,7 +186,7 @@
                         Local Business Directory
                     </div>
 
-                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-text" style="display:none;">{{ __('Details of the Business') }}</h5>
+                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-text">{{ __('Details of the Business') }}</h5>
                     <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-owner-text" style="display: none;">{{ __('Details of Owner') }}</h5>
 
 

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Business;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -83,5 +86,59 @@ class RegisterController extends Controller
     protected function businessRegisterIndex()
     {
         return view('auth.register_business');
+    }
+
+    public function registerBusiness(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'business_reg_no'=>$request->business_reg_no,
+            'password' => Hash::make($request->password),
+            'address' => $request->address,
+            'nearest_city' => $request->nearest_city,
+            'mobile_number' => $request->mobile_number,
+            'id_number' => $request->id_number,
+            'role_id' => 2, // Assuming role_id 2 corresponds to the business owner role
+        ]);
+
+        $business = Business::create([
+            'business_name' => $request->business_name,
+            'business_email' => $request->business_email,
+            'business_address' => $request->business_address,
+            'phone' => $request->phone,
+            'district' => $request->district,
+            'postal' => $request->postal,
+            'category' => $request->category,
+            'province' => $request->province,
+            'user_id' => $user->id,
+        ]);
+
+        event(new Registered($user));
+
+        auth()->login($user);
+
+        return redirect($this->redirectPath());
+    }
+
+    protected function businessValidator(array $data)
+    {
+        return Validator::make($data, [
+            'business_name' => ['required', 'string', 'max:255'],
+            'business_email' => ['required', 'string', 'email', 'max:255', 'unique:businesses'],
+            'business_address' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:15'],
+            'district' => ['required', 'string', 'max:255'],
+            'postal' => ['required', 'string', 'max:10'],
+            'category' => ['required', 'string', 'max:255'],
+            'province' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'mobile_number' => ['required', 'string', 'max:15'],
+            'address' => ['required', 'string', 'max:255'],
+        ]);
     }
 }
