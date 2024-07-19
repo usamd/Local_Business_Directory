@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/chat', [MessageController::class, 'index'])->name('chat.index');
@@ -56,3 +58,7 @@ Route::controller(MessageController::class)->group(function(){
 // Route::get('/messageDashboard', function () {
 //     return view('messageDashboard');
 // })->name('messageDashboard');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('register_employee', [RegisterController::class, 'businessRegisterIndex'])->name('register_employee');
+Route::post('register-business', [RegisterController::class, 'registerBusiness'])->name('register.business');
