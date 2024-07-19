@@ -10,4 +10,10 @@ class UserController extends Controller
     {
         return view('user.dashboard');
     }
+
+    public function userSelector()
+    {
+        $users = User::all();
+        return('/chat')->with('user',$users);
+    }
 }

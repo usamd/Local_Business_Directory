@@ -10,8 +10,15 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'sender_id',
+        'users',
+        'receiver_id',
         'message',
+        'is_read',
+        'is_edited',
+        'is_deleted',
+        'deleted_from_sender',
+        'deleted_from_receiver',
     ];
 
     public function user()

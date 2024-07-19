@@ -37,27 +37,16 @@
         <!-- chat Search -->
          <input type ="text" placeholder="search" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500 mb-4" >
         <!-- chat list -->
+
          <div class="max-h-96 overflow-y-auto">
             <div class="flex p-2 items-center mb-3 cursor-pointer rounded bg-gray-800">
               <div class="relative">
-                <img :src="fileLink('c7.jpg')" class="w-12 h-12 rounded-full border-2 border-green-400" alt="user_image">
+                <img src="" class="w-12 h-12 rounded-full border-2 border-green-400" alt="user_image">
                <!-- online dot --><div class="absolute h-3 w-3 bg-green-500 rounded-full -top-1.5 -left-1.5 ml-2 "></div>
               </div>
               <div class="ml-3 text-white">
-                <p class="font-semibold">User 0</p>
+                <p class="font-semibold">#</p>
                 <p class="text-gray-500">hello hi</p>
-              </div>
-            </div>
-         </div>
-         <div class="max-h-96 overflow-y-auto">
-            <div class="flex p-2 items-center mb-3 cursor-pointer rounded hover:bg-gray-800">
-              <div class="relative">
-                <img :src="fileLink('c7.jpg')" class="w-12 h-12 rounded-full border-2 border-green-400" alt="user_image">
-               <!-- online dot --><div class="absolute h-3 w-3 bg-slate-500 rounded-full -top-1.5 -left-1.5 ml-2 "></div>
-              </div>
-              <div class="ml-3 text-white">
-                <p class="font-semibold">User 1</p>
-                <p class="text-gray-500">hello</p>
               </div>
             </div>
          </div>
@@ -119,7 +108,7 @@
 
         <!-- sending messages -->
         <div class="flex items-center bg-white p-4 rounded-bl-md rounded-br-md">
-          <input type ="text" placeholder="Type your message" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500" >
+          <input type ="text" placeholder="Type your message" class="w-full p-2 rounded-md border border-green-300 focus:outline-none focus:ring focus:border-green-500" @click = "sendMessages">
           <button class="bg-blue-600 text-white px-4 py-2 rounded-md disabled:bg-gray-400 ml-2" @click="send">Send</button>
 
         </div>
@@ -136,9 +125,6 @@
 
 </div>
 
-
-
-
 </template>
 
 <script>
@@ -150,7 +136,7 @@ export default {
   components: { ThreeDotsIcon },
   data() {
     return {
-      message: '',
+      message: null,
       isChatOpen: true,
       allMessages: [],
     };
@@ -166,10 +152,13 @@ export default {
           console.error('Logout failed', error);
         });
     },
-    send() {
+    sendMessages() {
       if (!this.message) {
-        return alert('Please enter a message.');
+        //return alert(');
       }
+    
+      this.allMessages.push(this.message);
+
 
       axios.post('/messages', { message: this.message })
         .then(response => {
@@ -180,6 +169,7 @@ export default {
           console.error('Failed to send message', error);
         });
     },
+
     fetchMessages() {
       axios.get('/messages')
         .then(response => {
@@ -197,6 +187,9 @@ export default {
     this.fetchMessages();
   }
 };
+
+
+
 </script>
 
 <style scoped>
