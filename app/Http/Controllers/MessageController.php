@@ -8,7 +8,7 @@ use Auth;
 
 class MessageController extends Controller
 {
-    public function sendMessage(Request $request)
+    public function sendMessage($request)
     {
         $message = auth()->user()->messages()->create([
             'receiver_id' => $request->receiver_id,

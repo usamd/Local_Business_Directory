@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/users', [ChatController::class, 'getUsers']);
+Route::get('/userdetails', [ProfileController::class, 'edit']);
+Route::get('/settings', [ProfileController::class, 'show']);
+Route::post('/user/update', [UserController::class, 'update']);
