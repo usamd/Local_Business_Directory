@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MessageController;
@@ -28,6 +29,8 @@ Route::get('/settings', [UserController::class, 'settings'])->name('settings');
 Route::get('/userdetails', [ProfileController::class, 'edit'])->middleware('auth');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard');
 Route::get('/users', [ChatController::class, 'getUsers']);
+
+Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

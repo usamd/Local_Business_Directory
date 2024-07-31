@@ -186,12 +186,12 @@
                         Local Business Directory
                     </div>
 
-                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-text" style="display:none;">{{ __('Details of the Business') }}</h5>
+                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-text">{{ __('Details of the Business') }}</h5>
                     <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-owner-text" style="display: none;">{{ __('Details of Owner') }}</h5>
 
 
                     <div class="container2">
-                        <form method="POST" action="{{ route('register') }}" class="mb-4" id="employee-registration-form" >
+                        <form method="POST" action="{{ route('register.business') }}" class="mb-4" id="employee-registration-form">
                             @csrf
 
                             <!-- Part 1: Business Information -->
@@ -273,7 +273,7 @@
                                     <!-- First column spanning full width -->
                                     <div class="col-md-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="name" type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
+                                            <input id="owner_name" type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="owner_name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
                                             <label for="name">{{ __('Name') }}</label>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -293,7 +293,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
+                                            <input id="owner_email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="owner_email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
                                             <label for="email">{{ __('Email Address') }}</label>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -306,7 +306,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="mobile" type="text" class="form-control form-control-lg" name="mobile" placeholder="Mobile" required>
+                                            <input id="owner_phone" type="text" class="form-control form-control-lg" name="owner_phone" placeholder="Mobile" required>
                                             <label for="mobile">Mobile</label>
                                         </div>
                                     </div>
