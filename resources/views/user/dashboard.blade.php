@@ -12,7 +12,7 @@
                     <p>You're In</p></br>
                     <a href="{{ route('chat.index') }}" class="text-darkgreen-500 hover:text-blue-700"><button class="bg-green-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded">BizNest Messenger</button></a>
                 </div>
-                
+
 
                 </div>
             </div>
