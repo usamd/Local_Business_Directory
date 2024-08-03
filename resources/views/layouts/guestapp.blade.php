@@ -18,11 +18,11 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
     <div id="app">
-        
+
         <main class="py-4">
             @yield('content')
         </main>

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('nearest_city')->nullable();
             $table->string('mobile_number')->nullable();
             $table->string('id_number')->nullable();
-            $table->string('business_reg_no')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
