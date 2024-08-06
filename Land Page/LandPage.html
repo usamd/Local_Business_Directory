@@ -2,13 +2,18 @@
 <html>
 <head>
 	<title>Landing page</title>
-	<meta charset="utf-8">
+	<meta charset="UFT-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<link
+	  rel="stylesheet"
+	  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 	<link rel="stylesheet" type="text/css" href="LandPage.css">
 </head>
 <body>
 	<div class="main">
-
+		<div class="container">
 		<div class="navbar">
 			<div class="icon">
 				<img class="logo" src="Biznest 1.png" alt="logo">
@@ -100,10 +105,150 @@
 		<button type="submit" href="">Explore Now</button>
 	</div>
 
-	<div class="container">
 	<div class="rev">Customer Reviews</div>
+
+	<section class="testimonials">
+	<div class="w3-content w3-display-container">
+	<div class="mySlides" src="img_snowtops.jpg" >
+	<div class="swiper-slide testimonials-item" id="static_slide1">
+							<div class="info">
+								<img class="img"src="c1.jpg">
+								<div class="textbox">
+									<h3 class="name">John doe</h3>
+									<span class="job">Web developer</span>
+								</div>
+							</div>
+							<p>aaaaa a aaa aaa aaaa  aa  aaaaaaaaaaaaaaa a  aaaaaaaa a aaaaaa aaaaaaa aaaaaaaaaaaaa aaaaaa aaaaaaaaa aaaaa aaa aaaaa aaaaaaaa a aaaaaaaaaaaa aaaaa aaaaaaaaa  aaaaaaaaaaa aaaaaa aaaaaaaaaa aaaaa.</p>
+							<div class="rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+						</div>
+	</div>
+	<div class="mySlides" src="img_snowtops.jpg" >
+	<div class="swiper-slide testimonials-item">
+							<div class="info">
+								<img class="img" src="c2.jpg">
+								<div class="textbox">
+									<h3 class="name">Gabrial allo</h3>
+									<span class="job">Frontend developer</span>
+								</div>
+							</div>
+							<p>bbb bbb bbbbbbbbbbbbbbb bbb bbbbbbbbbb bbbbbbb bbbbb bbbbbbbbb bbbb b bbbbbbbb  bbbbbbbbb bb bbbbbbbb bbbbbbbbbbb bbbbbbbbb bbbbbb bb bbbbbbbb bbbbbbbbbbbbb bbbbbbbbbbbbbbbb bbbbbb</p>
+							<div class="rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+						</div>
 	</div>
 
+	<div class="mySlides" src="img_snowtops.jpg" >
+  	<div class="swiper-slide testimonials-item">
+							<div class="info">
+								<img class="img" src="c3.jpg">
+								<div class="textbox">
+									<h3 class="name">Smuwel shaf</h3>
+									<span class="job">Full Stack developer</span>
+								</div>
+							</div>
+							<p>c cccccccc cccc ccccccccccccc ccccccccccc cccccccccc ccccc ccccccc cccccccccccccc ccccccc cccccccc cccc cccc cccccc ccccccc c ccccccccc ccccc cccccccccc ccccc cccccc cccccc cccccccccccccc </p>
+							<div class="rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+						</div>
+	</div>
+	<div class="mySlides" src="img_snowtops.jpg" >
+  	<div class="swiper-slide testimonials-item">
+							<div class="info">
+								<img class="img" src="c4.jpg">
+								<div class="textbox">
+									<h3 class="name">petor pakar</h3>
+									<span class="job">Backend developer</span>
+								</div>
+							</div>
+							<p>ddd d dddddddd ddddddddddddd ddddd d dddddddddd dddddddddddd dddddddddd ddddddddddddddd dddd dddd dddddd d dddddd dddddd ddddddddd dddddd dddddddddddd dddddddddd dddddddddddd dddddddddd.</p>
+							<div class="rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+						</div>
+	</div>
+  		<div class="btn">
+		<button class="w3-black-w3-display-left"  onclick="plusDivs(-1)">&#10094;</button>
+		<button class="w3-black-w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+		</div>
+	</div>
+	</section>
+	<script>
+	var slideIndex = 1;
+	showDivs(slideIndex);
+
+	function plusDivs(n) {
+	  showDivs(slideIndex += n);
+	}
+
+	function showDivs(n) {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  if (n > x.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = x.length}
+	  for (i = 0; i < x.length; i++) {
+	    x[i].style.display = "none";  
+	  }
+	  x[slideIndex-1].style.display = "block";  
+	}
+	</script>
+
+	<div class="detail">
+		<h4>Your One-Stop Shop for Business Success</h4>
+
+		<p>BIZNEST is your comprehensive business directory designed to empower entrepreneurs and established businesses alike. We connect you with the resources you need to thrive, all in one convenien location.</p>
+
+		
+		<h4>Find What You Need, When You Need It</h4>
+		<ul>
+			<li>Effortless Searching: Effortlessly search for anything related to your business needs. Whether you're seeking specific materials, tools, or services, BIZNEST puts the best options at your fingertips.</li>
+			<li>Develop Your Business: Go beyond basic listings. BIZNEST helps you discover resources to propel your business forward. Find the right° artners, equipment, and expert advic to nurture your venture from concept to success.</li>
+		</ul>
+
+		<h4>BIZNET: More Than Just a Directory</h4>
+		<h5>Think of BIZNEST as your launchpad for business growth. We provide the connections and information you need to:</h5>
+
+		<ul>	
+			<li>Source Materials: Locate the best places to acquire essential supplies and equipment for your business.</li>
+			<li> Make Informe Decisions: Gain valuable insights and connect with industry experts to make strategic choices for your business.¯</li>
+			<li>Streamline Operations: Discover tools and services that can optimize your workflow and save you valuable time and resources.</li>
+		</ul>
+
+		<h6>BIZNES is your partner in building a successful and sustainable business</h6>
+	</div>
+
+	<div class="adve">
+		<h6>Latest Advertiesments</h6>
+
+		<div class="scroll-container">
+  		<img src="pic1.jpg" class="slide">
+  		<img src="pic2.jpg" class="slide">
+  		<img src="pic3.jpg" class="slide">
+  		<img src="pic4.jpg" class="slide">
+  		<img src="pic5.jpg" class="slide">
+  		<img src="pic6.jpg" class="slide">
+  		<img src="pic7.jpg" class="slide">
+ 	</div>
+	</div>
+</div>
 </div>
 </body>
-</html>
