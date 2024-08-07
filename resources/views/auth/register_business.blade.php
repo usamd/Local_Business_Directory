@@ -11,7 +11,6 @@
         height: auto !important;
     }
 
-
     .background-image-container {
         position: relative;
         overflow: hidden;
@@ -47,22 +46,11 @@
         padding: 0.75rem 1rem;
         color: white !important;
         background-color: #015701;
-
-
     }
     .btn-login:hover{
 
         color: rgb(255, 255, 255) !important;
         background-color:rgb(0, 0, 0) ;
-    }
-
-    .btn-google, .btn-facebook, .btn-github {
-        color: white !important;
-        background-color: rgb(0, 0, 0);
-        display: inline-block;
-        width: auto;
-        padding: 0.5rem 1rem;
-        margin-right: 0.5rem;
     }
 
     .card {
@@ -72,7 +60,7 @@
         -webkit-backdrop-filter: blur(5px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.3);
-        height: 90vh;
+        height: auto !important;
     }
 
     .card-title {
@@ -100,6 +88,16 @@
 
     .btn-link:hover{
         color:white;
+    }
+
+    @media (max-width: 576px) {
+        .custom-form-input {
+            width: 100% !important;
+            margin: 10px !important;
+        }
+        .btn-login {
+            width: 100% !important;
+        }
     }
 
 
@@ -187,25 +185,24 @@
                     </div>
 
                     <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-text">{{ __('Details of the Business') }}</h5>
-                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-owner-text" style="display: none;">{{ __('Details of Owner') }}</h5>
+                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-owner-text" style="display: none;">{{ __('Details of the Owner') }}</h5>
 
 
-                    <div class="container2">
                         <form method="POST" action="{{ route('register.business') }}" class="mb-4" id="employee-registration-form">
                             @csrf
 
                             <!-- Part 1: Business Information -->
                             <div id="form-part-1">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="business_name" type="text" class="form-control form-control-lg" name="business_name" placeholder="Business Name" required>
+                                            <input id="business_name" type="text" class="form-control" name="business_name" placeholder="Business Name" required>
                                             <label for="business_name">Business Name</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="business_email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="business_email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
+                                            <input id="business_email" type="email" class="form-control  @error('email') is-invalid @enderror" name="business_email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
                                             <label for="email">{{ __('Email Address') }}</label>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -214,56 +211,65 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="business_address" type="text" class="form-control form-control-lg" name="business_address" placeholder="Business Address" required>
+                                            <input id="business_address" type="text" class="form-control " name="business_address" placeholder="Business Address" required>
                                             <label for="business_address">Business Address</label>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="business_phone" type="text" class="form-control form-control-lg" name="phone" placeholder="Phone No" required>
+                                            <input id="business_phone" type="text" class="form-control " name="phone" placeholder="Phone No" required>
                                             <label for="phone">Phone No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="district" type="text" class="form-control form-control-lg" name="district" placeholder="District" required>
+                                            <input id="district" type="text" class="form-control " name="district" placeholder="District" required>
                                             <label for="district">District</label>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="postal" type="text" class="form-control form-control-lg" name="postal" placeholder="Postal" required>
+                                            <input id="postal" type="text" class="form-control " name="postal" placeholder="Postal" required>
                                             <label for="postal">Postal</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="category" type="text" class="form-control form-control-lg" name="category" placeholder="Category" required>
+                                            <input id="category" type="text" class="form-control " name="category" placeholder="Category" required>
                                             <label for="category">Category</label>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 col-sm-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="province" type="text" class="form-control form-control-lg" name="province" placeholder="Province" required>
+                                            <input id="province" type="text" class="form-control " name="province" placeholder="Province" required>
                                             <label for="province">Province</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-grid mb-3 gap-2 custom-form-input text-center">
-                                    <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="next-button"style="width: 400px; margin: 0 auto;">
-                                        Next
-                                    </button>
-                                    <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="first-back-button"style="width: 400px; margin: 0 auto;">
-                                        Back
-                                    </button>
+
+                                <div class="container">
+                                    <div class="d-grid gap-2 custom-form-input text-center">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
+                                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="first-back-button"style="width: 400px; margin: 0 auto;">
+                                                    Back
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="next-button"style="width: 400px; margin: 0 auto;">
+                                                    Next
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -273,7 +279,7 @@
                                     <!-- First column spanning full width -->
                                     <div class="col-md-12">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="owner_name" type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="owner_name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
+                                            <input id="owner_name" type="text" class="form-control  @error('name') is-invalid @enderror" name="owner_name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
                                             <label for="name">{{ __('Name') }}</label>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -287,13 +293,13 @@
                                     <!-- Split the remaining fields equally into two columns -->
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="business_reg_no" type="text" class="form-control form-control-lg" name="business_reg_no" placeholder="Business Registration Number" required>
+                                            <input id="business_reg_no" type="text" class="form-control " name="business_reg_no" placeholder="Business Registration Number" required>
                                             <label for="business_reg_no">Business Registration Number</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="owner_email" type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="owner_email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
+                                            <input id="owner_email" type="email" class="form-control  @error('email') is-invalid @enderror" name="owner_email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
                                             <label for="email">{{ __('Email Address') }}</label>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
@@ -306,13 +312,13 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="owner_phone" type="text" class="form-control form-control-lg" name="owner_phone" placeholder="Mobile" required>
+                                            <input id="owner_phone" type="text" class="form-control " name="owner_phone" placeholder="Mobile" required>
                                             <label for="mobile">Mobile</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="address" type="text" class="form-control form-control-lg" name="address" placeholder="Address" required>
+                                            <input id="address" type="text" class="form-control " name="address" placeholder="Address" required>
                                             <label for="address">Address</label>
                                         </div>
                                     </div>
@@ -320,7 +326,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="new-password">
+                                            <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="new-password">
                                             <label for="password">{{ __('Password') }}</label>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -331,32 +337,31 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating mb-3 custom-form-input">
-                                            <input id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
+                                            <input id="password-confirm" type="password" class="form-control " name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
                                             <label for="password-confirm">{{ __('Confirm Password') }}</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center mb-3 gap-2 custom-form-input">
-                                    <div>
-                                        <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="submit" style="width: 200px;">
-                                            {{ __('Register') }}
-                                        </button>
-                                        <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="second-back-button" style="width: 200px;">
-                                            Back
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <button class="btn btn-lg btn-google btn-login fw-bold" type="button">
-                                            <i class="fab fa-google"></i>
-                                        </button>
-                                        <button class="btn btn-lg btn-facebook btn-login fw-bold" type="button">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </button>
-                                        <button class="btn btn-lg btn-github btn-login fw-bold" type="button">
-                                            <i class="fab fa-github"></i>
-                                        </button>
+
+                                <div class="container">
+                                    <div class="d-grid gap-2 custom-form-input text-center">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-6 col-sm-12 mb-2 mb-md-0">
+                                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="second-back-button" style="width: 400px;">
+                                                    Back
+                                                </button>
+
+                                            </div>
+                                            <div class="col-md-6 col-sm-12">
+                                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="submit" style="width: 400px;">
+                                                    {{ __('Register') }}
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+
 
                             </div>
                             <hr class="my-4">
@@ -366,10 +371,9 @@
                                 </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection
