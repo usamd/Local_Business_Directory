@@ -94,7 +94,7 @@
         color: rgb(241, 241, 241);
     }
     .text-green {
-        color: rgb(255, 255, 255);
+        color: rgb(13, 167, 13);
     }
     .custom-form-input {
         width: 60%; /* Adjust the width as needed */
@@ -152,17 +152,6 @@
 
                         <hr class="my-4">
 
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-lg btn-google btn-login fw-bold rounded-circle" type="button">
-                                <i class="fab fa-google"></i>
-                            </button>
-                            <button class="btn btn-lg btn-facebook btn-login fw-bold rounded-circle" type="button">
-                                <i class="fab fa-facebook-f"></i>
-                            </button>
-                            <button class="btn btn-lg btn-github btn-login fw-bold rounded-circle" type="button">
-                                <i class="fab fa-github"></i>
-                            </button>
-                        </div>
                         <a class="btn btn-link d-block text-center mt-2 small" href="{{ route('register') }}">{{ __('Do not have an account yet? Register for free') }}</a>
                     </form>
                 </div>

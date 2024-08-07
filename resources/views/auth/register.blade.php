@@ -8,7 +8,7 @@
         padding: 0;
         font-family: sans-serif;
         width: 100%;
-        height: auto !important;
+        height: 100vh;
     }
 
 
@@ -72,7 +72,8 @@
         -webkit-backdrop-filter: blur(5px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.3);
-        height: auto;
+        height:100%;
+
     }
 
     .card-title {
@@ -105,29 +106,7 @@
 
 </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Show user registration form and hide employee registration form initially
-        $("#user-registration-form").hide();
 
-        // Switch to user registration form when "Signup as a user" button is clicked
-        $("#signup-user-btn").click(function() {
-            $("#user-registration-form").show();
-
-            $("#signup-user-btn").hide();
-            $("#button-container").hide();
-            $("#signup-employee-btn").hide();
-            $("#signup-business-text").hide();
-            $("#signup-user-text").show();
-            $("#login-btn").hide();
-        });
-
-        // Redirect to employee registration page when "Signup as an employee" button is clicked
-        $("#emp-signup-shift-btn").click(function() {
-            window.location.href = "{{ route('register_employee') }}";
-        });
-    });
-</script>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -142,116 +121,11 @@
                         Local Business Directory
                     </div>
 
-
-                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-text" style="display:none;">{{ __('Details of the Business') }}</h5>
-                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-user-text" style="display: none;">{{ __('Signup as a User') }}</h5>
-                    <h5 class="card-title text-center text-green mb-4 fw-light fs-lg" id="signup-business-owner-text" style="display: none;">{{ __('Details of Owner') }}</h5>
-
-
                 <div class="d-grid gap-3 mb-2 button-container text-center" id="main-button-container" style="display:none;">
-                    <button id="signup-user-btn" class="btn btn-login fw-bold rounded-pill px-3" style="width: 300px; margin: 0 auto;">Signup as a user</button>
+                    <a href="{{ route('register_user') }}" class="btn btn-login fw-bold rounded-pill px-3" id="signup-user-btn"style="width: 300px; margin: 0 auto;">Signup as a user</button>
                     <a href="{{ route('register_employee') }}" class="btn btn-login fw-bold rounded-pill px-3" id="signup-employee-btn"style="width: 300px; margin: 0 auto;">Signup as an employee</button>
                     <a href="{{ route('login') }}" id="login-btn" class="btn btn-login fw-bold rounded-pill px-3" style="width: 300px; margin: 0 auto;">Login</a>
-                </div>
-
-
-
-                <div class="container1">
-                    <form method="POST" action="{{ route('register') }}" class="mb-4" id="user-registration-form" style="display: none;">
-                        @csrf
-                        <div class="row">
-                            <!-- Left column -->
-                            <div class="col-md-6">
-                                <!-- Existing form fields -->
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Name" required autocomplete="name" autofocus>
-                                        <label for="name">{{ __('Name') }}</label>
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                </div>
-
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="name@example.com" required autocomplete="email">
-                                        <label for="email">{{ __('Email Address') }}</label>
-                                            @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                </div>
-
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="new-password">
-                                        <label for="password">{{ __('Password') }}</label>
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
-                                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
-                                </div>
-                            </div>
-
-                            <!-- Right column -->
-                            <div class="col-md-6">
-                                <!-- Additional fields -->
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="address" type="text" class="form-control form-control-lg" name="address" placeholder="Address" required>
-                                    <label for="address">Address</label>
-                                </div>
-
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="nearest_city" type="text" class="form-control form-control-lg" name="nearest_city" placeholder="Nearest City" required>
-                                    <label for="nearest_city">Nearest City</label>
-                                </div>
-
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="mobile_number" type="text" class="form-control form-control-lg" name="mobile_number" placeholder="Mobile Number" required>
-                                    <label for="mobile_number">Mobile Number</label>
-                                </div>
-
-                                <div class="form-floating mb-3 custom-form-input">
-                                    <input id="id_number" type="text" class="form-control form-control-lg" name="id_number" placeholder="ID Number" required>
-                                    <label for="id_number">ID Number</label>
-                                </div>
-                                <!-- More additional fields -->
-                            </div>
-                        </div>
-
-                        <!-- Link for signing in, HR, and social media buttons -->
-                        <div class="d-flex justify-content-between align-items-center mb-3 gap-2 custom-form-input">
-                            <div>
-                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="submit" style="width: 200px;">
-                                    {{ __('Register') }}
-                                </button>
-                                <button class="btn btn-lg  btn-login fw-bold text-uppercase rounded-pill" type="button" id="emp-signup-shift-btn" style="width: 400px;">
-                                    {{ __('Signup as an Employee') }}
-                                </button>
-                            </div>
-                            <div>
-                                <button class="btn btn-lg btn-google btn-login fw-bold" type="button">
-                                    <i class="fab fa-google"></i>
-                                </button>
-                                <button class="btn btn-lg btn-facebook btn-login fw-bold" type="button">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-                                <button class="btn btn-lg btn-github btn-login fw-bold" type="button">
-                                    <i class="fab fa-github"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <hr class="my-4">
-                        <a class="d-block text-center btn-link mt-2 small" href="{{ route('login') }}">{{ __('Have an account? Sign In') }}</a>
-
-
-                    </form>
+                    <a href="{{ route('about_us') }}" id="login-btn" class="btn btn-login fw-bold rounded-pill px-3" style="width: 300px; margin: 0 auto;">about_us</a>
                 </div>
                 </div>
             </div>

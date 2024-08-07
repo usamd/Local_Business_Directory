@@ -25,4 +25,11 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function AboutUsIndex()
+    {
+        return view('about_us');
+    }
+
+
 }
