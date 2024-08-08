@@ -137,7 +137,7 @@
             <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
                 <div class="card-body p-4 p-sm-5">
                     <div class="background-image-container">
-                        <img src="/images/logo.png" alt="Logo Image">
+                        <img src="/images/logo1.png" alt="Logo Image">
                     </div>
                     <div class="text-center mb-4 text-white font-size-lg">
                         Local Business Directory

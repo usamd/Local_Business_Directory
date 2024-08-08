@@ -109,7 +109,7 @@
                 <div class="card-body p-4 p-sm-5">
                     <div class="background-image-container">
                         <!-- Place your image inside this div -->
-                        <img src="/images/logo.png" alt="Logo Image">
+                        <img src="/images/logo1.png" alt="Logo Image">
                     </div>
                     <div class="text-center mb-4 text-white font-size-lg">
                         Local Business Directory
@@ -144,11 +144,11 @@
                             </button>
                         </div>
 
-                        @if (Route::has('password.request'))
+                        <!--@if (Route::has('password.request'))
                             <a class="btn btn-link d-block text-center mt-2 small" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
-                        @endif
+                        @endif-->
 
                         <hr class="my-4">
 
